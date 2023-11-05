@@ -19,14 +19,14 @@ router.post("/add-movie", (req, res) => {
 
 })
 
-router.get("/movies", (req, res) => {
+router.get("/", (req, res) => {
     Movie
         .find()
         .then(movies => res.render('movies/movies', { movies }))
         .catch((err) => console.log("ey", err))
 })
 
-router.get("/movies/details/:id", (req, res) => {
+router.get("/details/:id", (req, res) => {
     const { id } = req.params
 
     Movie
@@ -50,7 +50,7 @@ router.post("/:id/delete", (req, res) => {
 
 })
 
-router.get("/:id/edit", (req, res) => {
+router.post("/:id/edit", (req, res) => {
 
     const { id } = req.params
 
